@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="style.css">
+        <title>Wifi sharing</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <h1>Wifi Sharing App</h1>
+                <div id="ip-info"></div>
+            </div>
+            <div class="row">
+                <form action="/" method="post" enctype="multipart/form-data" class="form-inline">
+                    <input type="file" name="images" multiple class="form-control">
+                    <input type="submit" value="Upload" class="form-control">
+                </form>
+            </div>
+            <hr>
+            <div class="row">
+                {{#if images}}
+                    {{#each images}}
+                        <div class="col-md-4 col-sm-6">
+                            <div class="thumbnail">
+                                <img src="{{this.url}}" alt="{{this.name}}">
+                                <p>{{this.name}}</p>
+                            </div>
+                        </div>
+                    {{/each}}
+                {{else}}
+                    <h3>Không có ảnh nào</h3>
+                {{/if}}
+            </div>
+        </div>
+
+        <script src="ip-detect.js"></script>
+    </body>
+</html>
